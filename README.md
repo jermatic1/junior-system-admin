@@ -1,10 +1,12 @@
----
-
+<style>
+  html, body, p, li {
+    font-size: 11pt !important; /* Standard print size is usually 10pt-12pt */
+  }
+  h1 { font-size: 20pt !important; }
+  h2 { font-size: 14pt !important; }
+  h3 { font-size: 12pt !important; }
+</style>
 # 📂 JUNIOR SYSTEM ADMINISTRATOR PROTOCOL
-
-## TARGET HARDWARE: RASPBERRY PI ARCHITECTURE
-
----
 
 ## 🖥️ MODULE 1: HARDWARE ASSEMBLY & ACCOUNT PROVISIONING
 
@@ -26,7 +28,7 @@ A computer requires a complete hardware circuit to function. Power enters the ma
 
 Find the application named **Terminal** in your menus. Open it, type `whoami`, and hit Enter. Verify that the output matches the exact username you configured during setup.
 
----
+<div style="break-before: page;"></div>
 
 ## 📄 MODULE 2: FILE SYSTEMS & NETWORK PRINTING
 
@@ -48,7 +50,7 @@ Linux organizes everything into a unified hierarchy starting at the root directo
 
 In the File Manager, go into your `System_Logs` folder. Click on the path bar at the top of the window to change it from icons to text. Copy or write down that exact absolute path string.
 
----
+<div style="break-before: page;"></div>
 
 ## 🌐 MODULE 3: USER AUTHENTICATION & THE WEB
 
@@ -70,7 +72,7 @@ A web browser translates remote source code over network protocols into a visual
 
 Set the downloaded image as your system desktop background. Right-click the desktop, open **Desktop Preferences**, and locate the exact folder where your image was saved.
 
----
+<div style="break-before: page;"></div>
 
 ## ✂️ MODULE 4: DATA MANIPULATION & UNLINKING (THE TRASH)
 
@@ -92,7 +94,7 @@ When you interact with files, you can alter their location on the disk in two wa
 
 Create a blank text document in Mousepad called `temp.txt`. Save it to your desktop. Highlight it and press `Shift + Delete`. Go look in your Trash folder—explain to Dad why the file didn't show up in the Trash this time.
 
----
+<div style="break-before: page;"></div>
 
 ## ⛏️ MODULE 5: COMPILING & MANAGING GAME SAVES
 
@@ -113,7 +115,7 @@ Games write variable data—like world coordinates, player inventory, and blocks
 
 While inside the hidden Minecraft folder, look for a text file named `options.txt`. Open it in Mousepad to see how the game stores settings like volume or control layouts as plain text variables.
 
----
+<div style="break-before: page;"></div>
 
 ## 🧭 MODULE 6: THE COMMAND HELP SYSTEM & SYSTEM UTILITIES
 
@@ -134,7 +136,7 @@ When using the Terminal, you execute programs by typing their names. But how do 
 
 Type `man mkdir` into the terminal. This opens the complete "Manual Page" book layout for that tool. Use your arrow keys to scroll, and press the `q` key on your keyboard when you want to exit the manual and return to your terminal prompt.
 
----
+<div style="break-before: page;"></div>
 
 ## 🦍 MODULE 7: WEBSCRAPING RAW SOURCE CODE & GORILLAS PHYSICS
 
@@ -159,7 +161,7 @@ However, if you point `wget` at a normal webpage link (like a standard GitHub pa
 
 Re-open the script in `nano`. Scroll down and find where the game draws the city skyline or calculates player names. See if you can change the text string to rename "Player 1" to your own custom gaming handle.
 
----
+<div style="break-before: page;"></div>
 
 ## ⚔️ MODULE 8: PROJECT REPOSITORIES & TERMINAL DUNGEON CRAWLERS
 
@@ -182,7 +184,7 @@ Software developers don't just share individual files; they package entire proje
 
 Use your system package manager to download a classic server visualization tool by executing `sudo apt install cmatrix -y`. Once installed, type `cmatrix` to turn your screen into a cascading wall of terminal code. Press `q` to terminate it.
 
----
+<div style="break-before: page;"></div>
 
 ## 💿 MODULE 9: THE LITE ARCHITECTURE TRANSITION
 
@@ -204,7 +206,7 @@ Production-grade enterprise servers almost never waste RAM or processor cycles r
 
 When the system boots up to a completely black screen with white text asking for a login, enter your username and password. Note how when typing your password, the screen shows absolutely nothing (no stars, no letters) for security. Type it blind and hit Enter to log in.
 
----
+<div style="break-before: page;"></div>
 
 ## 📡 MODULE 10: HEADLESS OPERATIONS & REMOTE SHELLS
 
