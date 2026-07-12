@@ -1,0 +1,15 @@
+html,
+body,
+p,
+li {
+    font-size: 11pt !important;
+}
+h1 {
+    font-size: 18pt !important;
+}
+h2 {
+    font-size: 14pt !important;
+}
+h3 {
+    font-size: 12pt !important;
+}

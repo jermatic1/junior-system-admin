@@ -1,11 +1,3 @@
-<style>
-  html, body, p, li {
-    font-size: 11pt !important; /* Standard print size is usually 10pt-12pt */
-  }
-  h1 { font-size: 20pt !important; }
-  h2 { font-size: 14pt !important; }
-  h3 { font-size: 12pt !important; }
-</style>
 # 📂 JUNIOR SYSTEM ADMINISTRATOR PROTOCOL
 
 ## 🖥️ MODULE 1: HARDWARE ASSEMBLY & ACCOUNT PROVISIONING
@@ -22,11 +14,12 @@ A computer requires a complete hardware circuit to function. Power enters the ma
 2. **Boot Initialization:** Insert the pre-flashed MicroSD card into the slot on the bottom of the Pi. Connect the power adapter to the wall, then plug it into the Pi.
 3. **Account Provisioning:** Follow the on-screen wizard to create your primary user account. Choose a unique username and a secure password.
 4. **Network Integration:** Use the desktop taskbar icon to connect the device to the family Wi-Fi network.
-5. **Verification:** Open the application menu, look under the "Games" category, and launch any pre-installed utility to confirm your display and inputs are responsive.
 
 ### 🎮 Side Quest
 
-Find the application named **Terminal** in your menus. Open it, type `whoami`, and hit Enter. Verify that the output matches the exact username you configured during setup.
+Find the application named **Terminal** in your menus and click it to open.
+ - type `whoami`, and hit Enter. Verify that the output matches the exact username you configured during setup.
+ - type `ping google.com`, and hit Enter. After it runs for a few seconds and you see output press `Ctrl-C` to stop it. About how many ms was the average ping time?
 
 <div style="break-before: page;"></div>
 
@@ -64,7 +57,8 @@ A web browser translates remote source code over network protocols into a visual
 
 1. **Browser Initialization:** Open the **Chromium** web browser from your desktop taskbar.
 2. **Extension Deployment:** Navigate to the Chrome Web Store, search for **Bitwarden**, and install the extension.
-3. **Identity Authentication:** Click the extension icon in the top right, log in using the family vault credentials, then navigate to `google.com` and log into your account.
+3. **Identity Authentication:** Click the Bitwarden extension icon in the top right, log in using the your credentials.
+4. **Google Login** Navigate to `google.com` and sign in to your account. Bitwarden should popup and provide your credentials.
 4. **Targeted Research:** Use Google to find the official wiki page for your favorite video game. Locate a high-resolution image of a character on that wiki.
 5. **Disk Write:** Right-click the image, select "Save Image As...", and save it directly into your local directory.
 
