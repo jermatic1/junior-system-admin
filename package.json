@@ -16,6 +16,6 @@
     "md-to-pdf": "^5.2.5"
   },
   "scripts": {
-    "build-pdf": "md-to-pdf *.md --pdf-options '{ \"margin\": \"30\" }' --stylesheet print.css"
+    "build-pdf": "md-to-pdf *.md ./hardware/*.md --pdf-options '{ \"margin\": \"30\" }' --stylesheet print.css"
   }
 }
