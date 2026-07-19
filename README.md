@@ -34,7 +34,7 @@ Linux organizes everything into a unified hierarchy starting at the root directo
 ### 🚀 Main Mission
 
 1. **Directory Generation:** Open the File Manager utility. Navigate to your Home directory, open the `Documents` folder, and create a new folder named `System_Logs`.
-2. **Document Creation:** Open the **Mousepad** text editor. Write an inventory listing every physical hardware component connected to your Pi (brand of mouse, size of monitor, keyboard type).
+2. **Document Creation:** Open the **Text Editor**. Write an inventory listing every physical hardware component connected to your Pi (brand of mouse, size of monitor, keyboard type).
 3. **Structured Save:** Save this document as `hardware_inventory.txt` directly inside your new `System_Logs` folder.
 4. **Peripheral Mapping:** Open the system settings menu and select **Print Settings** (or **Printers**). Click "Add", select "Network Printer", and wait for the system to discover the family printer on the network.
 5. **Hardcopy Execution:** Open your `hardware_inventory.txt` file and print a physical copy to confirm the driver and network path are operational.
@@ -86,28 +86,36 @@ When you interact with files, you can alter their location on the disk in two wa
 
 ### 🎮 Side Quest
 
-Create a blank text document in Mousepad called `temp.txt`. Save it to your desktop. Highlight it and press `Shift + Delete`. Go look in your Trash folder—explain to Dad why the file didn't show up in the Trash this time.
+Create a blank text document in the Text Editor called `temp.txt`. Save it to your desktop. Highlight it and press `Shift + Delete`. Go look in your Trash folder—explain to Dad why the file didn't show up in the Trash this time.
 
 <div style="break-before: page;"></div>
 
-## ⛏️ MODULE 5: COMPILING & MANAGING GAME SAVES
+## ⛏️ MODULE 5: HIDDEN FILES & GAME SAVES
 
-**Objective:** Locate hidden system files and manage backup directories using Minecraft.
+**Objective:** Install software with Pi-Apps, locate hidden system folders, and back up a Minecraft world.
 
 ### 📜 Tech Briefing
 
-Games write variable data—like world coordinates, player inventory, and blocks—into specific directories on your storage drive. In Linux, configuration folders and game files are frequently hidden to prevent accidental deletion. Any file or folder that starts with a dot (e.g., `.minecraft`) is hidden by default and ignored by standard directory views.
+Games write variable data—like world coordinates, player inventory, and blocks—into specific directories on your storage drive. In Linux, configuration folders and game files are frequently **hidden** to prevent accidental deletion. Any file or folder that starts with a dot (e.g., `.minecraft-pi`) is hidden by default and ignored by standard directory views.
+
+Not every app ships with Raspberry Pi OS. Community tools like **Pi-Apps** act as an app store: you pick a program, and it runs the install steps for you.
 
 ### 🚀 Main Mission
 
-1. **Runtime Execution:** Open the application menu, go to "Games", and launch **Minecraft Pi Edition**. Generate a new world, build a recognizable structure (like a tall tower), and exit the game to force the software to commit its save state to the disk.
-2. **Hidden Directory Hunt:** Open your File Manager and navigate to your Home directory. Reveal the hidden files in this directory.
-3. **World Extraction:** Locate the folder where Minecraft stores its worlds (look for a folder named `~/.minecraft/games/com.mojang/minecraftWorlds`). Copy your world folder and paste it into your `Documents` folder as a secure backup.
-4. **Verification Test:** Relaunch the game, enter your world, and completely destroy your structure. Close the game. Now, copy your backup folder from `Documents` and overwrite the ruined folder inside the hidden directory. Relaunch the game to verify your structure is restored.
+1. **Install Pi-Apps:** Open the Terminal and run:
+   ```bash
+   wget -qO- https://raw.githubusercontent.com/Botspot/pi-apps/master/install | bash
+   ```
+   When it finishes, you can open Pi-Apps from the application menu (**Accessories → Pi-Apps**) or by typing `pi-apps` in the terminal.
+2. **Install Minecraft Pi (Modded):** In Pi-Apps, open the **Games** category, select **Minecraft Pi (Modded)**, and click **Install**. Wait until the install completes.
+3. **Play and Build:** Launch Minecraft Pi (Modded) from the Games menu. Create or open a world, build a recognizable structure (like a tall tower), then quit the game completely so it saves to disk.
+4. **Hidden Directory Hunt:** Open the File Manager and go to your Home directory. Turn on **Show Hidden** (often under the View menu, or press **Ctrl+H**) so folders that start with a dot appear.
+5. **World Extraction:** Find the folder named `.minecraft-pi`. Inside it, locate your world data and copy that world folder into your `Documents` folder as a backup.
+6. **Verification Test:** Relaunch the game, enter your world, and destroy your structure. Quit the game. Copy your backup from `Documents` back over the ruined world folder inside `.minecraft-pi`. Launch the game again and confirm your structure is restored.
 
 ### 🎮 Side Quest
 
-While inside the hidden Minecraft folder, look for a text file named `options.txt`. Open it in Mousepad to see how the game stores settings like volume or control layouts as plain text variables.
+Still inside `.minecraft-pi`, open `options.txt` in the Text Editor. Look at how the game stores settings (like volume or controls) as plain text you can read and edit.
 
 <div style="break-before: page;"></div>
 
@@ -157,30 +165,132 @@ Re-open the script in `nano`. Scroll down and find where the game draws the city
 
 <div style="break-before: page;"></div>
 
-## ⚔️ MODULE 8: PROJECT REPOSITORIES & TERMINAL DUNGEON CRAWLERS
+## ⚔️ MODULE 8: PROJECT REPOSITORIES & STORY GAMES
 
-**Objective:** Query GitHub for a software repository and clone all assets via the command line.
+**Objective:** Query GitHub for a software repository, clone it with `git`, and run (then edit) Python adventure games from the project.
 
 ### 📜 Tech Briefing
 
-Software developers don't just share individual files; they package entire projects into "Repositories" hosted on a platform called **GitHub**. To pull down an entire project folder with all of its code, images, and sub-folders intact, we use a tool called `git`. The subcommand `git clone` acts like an automated copier that downloads a complete software project from the web directly into a folder on your drive.
+Software developers don't just share individual files; they package entire projects into **repositories** hosted on a platform called **GitHub**. To pull down an entire project folder with all of its code and sub-folders intact, we use a tool called `git`. The subcommand `git clone` acts like an automated copier that downloads a complete software project from the web directly into a folder on your drive.
 
 ### 🚀 Main Mission
 
-1. **Setting the Stage:** Open your Terminal. Change directories back to your main development folder: `cd ~/Downloads/Games/Retro`.
-2. **Finding the Repository Target:** Open your Chromium browser and navigate to `github.com`. In the search box, search for a terminal-based dungeon crawler project named `python-roguelike` by the user `the-gorgon`. Click on the project to open its main landing page.
-3. **Acquiring the Project Link:** On the repository front page, locate the bright green button labeled **Code** (near the top right of the file list) and click it. Under the "Local" tab, select **HTTPS**. Click the small square icon next to the URL to copy the repository link to your clipboard.
-4. **Cloning the Repository:** Return to your terminal. Type `git clone ` and paste the repository URL you just copied (it should end in `.git`). Press Enter and watch the tool download the entire architecture.
-5. **Reading the Manual:** While the download finishes, look back at your browser window. Scroll down past the file list on the GitHub page to read the `README.md` documentation file. Read through the text to discover which keyboard keys control player movement, attacking, and inventory.
-6. **Text-Dimension Launch:** Go back to your terminal. Move into the newly created folder by typing `cd python-roguelike`. Type `ls` to view the asset structure. Launch the engine by typing `python3 main.py` (or the script filename specified in the readme). Navigate through the dungeon using your keyboard based on the instructions you read.
+1. **Setting the Stage:** Open your Terminal. Create a Games folder in your home directory if it does not already exist, then move into it:
+   ```bash
+   mkdir -p ~/Games
+   cd ~/Games
+   ```
+2. **Finding the Repository Target:** Open your Chromium browser and navigate to `github.com`. In the search box, search for `junior-system-admin` by the user `jermatic1`. Click the project to open its main landing page. (If search is slow, go directly to `https://github.com/jermatic1/junior-system-admin`.)
+3. **Acquiring the Project Link:** On the repository front page, locate the bright green button labeled **Code** (near the top right of the file list) and click it. Under the "Local" tab, select **HTTPS**. Click the small square icon next to the URL to copy the repository link to your clipboard. It should look like:
+   `https://github.com/jermatic1/junior-system-admin.git`
+4. **Cloning the Repository:** Return to your terminal (still inside `~/Games`). Type `git clone ` (with a space after `clone`) and paste the repository URL you just copied. Press Enter and watch the tool download the entire project.
+5. **Enter the Games Bay:** Move into the cloned project and list what is inside:
+   ```bash
+   cd ~/Games/junior-system-admin
+   ls
+   cd games
+   ls
+   ```
+   You should see files such as `iron_gates.py`, `starship_traveller.py`, and `engine.py`.
+6. **Launch Iron Gates:** Run the first adventure:
+   ```bash
+   python3 iron_gates.py
+   ```
+   Play through to an ending. Use the number keys to choose your path. Press **Ctrl+C** if you ever need to exit early.
+   - If Python complains that it cannot find a module named `rich`, install it with:
+     ```bash
+     sudo apt install python3-rich -y
+     ```
+     Then run `python3 iron_gates.py` again.
+7. **Inspect the Source:** When you are done playing, open the game in the terminal editor:
+   ```bash
+   nano iron_gates.py
+   ```
+   Scroll through the file and find where the adventure is defined (look for the big `STORY = { ... }` dictionary near the top). Notice how each scene has a title, some text, and numbered choices that point to the next scene.
+8. **Modify the Adventure:** Challenge — change something in the story! Ideas:
+   - Rewrite a scene's text in your own words
+   - Add a new choice that leads to a new scene
+   - Rename a location or the victory message
+   Save in nano with **Ctrl+O**, Enter, then exit with **Ctrl+X**. Run `python3 iron_gates.py` again and play your custom version.
 
 ### 🎮 Side Quest
 
-Use your system package manager to download a classic server visualization tool by executing `sudo apt install cmatrix -y`. Once installed, type `cmatrix` to turn your screen into a cascading wall of terminal code. Press `q` to terminate it.
+Still inside the `games` folder, launch the second adventure:
+
+```bash
+python3 starship_traveller.py
+```
+
+Play a full run (watch your hull and fuel). When you finish, open it in nano:
+
+```bash
+nano starship_traveller.py
+```
+
+Look at how this story is set up. **What looks the same between `iron_gates.py` and `starship_traveller.py`?** What did the authors put in a shared file so both games could reuse it?
 
 <div style="break-before: page;"></div>
 
-## 💿 MODULE 9: THE LITE ARCHITECTURE TRANSITION
+## 🛰️ MODULE 9: MISSION CONTROL FIELD TEST
+
+**Objective:** Reuse file, browser, terminal, and system skills on a brand-new project—no leftover files from earlier modules required.
+
+### 📜 Tech Briefing
+
+Real admins rarely repeat a tutorial step-for-step. They get a goal (“set up a clean workspace, document the machine, grab an asset, check disk space”) and combine tools they already know. This field test builds a fresh folder tree called **Mission Control** and walks the desktop like a map.
+
+### 🚀 Main Mission
+
+1. **Build the Base:** Open the Terminal. Create the Mission Control tree and confirm it exists:
+   ```bash
+   mkdir -p ~/Mission_Control/{logs,media,archive}
+   ls ~/Mission_Control
+   ```
+   Optional: use the long-list flag you learned earlier (`ls -l ~/Mission_Control`) to see extra detail.
+2. **Write the Briefing:** Open the **Text Editor**. Create a file named `briefing.txt` and save it as `~/Mission_Control/logs/briefing.txt`. Include:
+   - Your name
+   - Today’s date
+   - The **absolute path** to the Mission_Control folder (use the File Manager path bar or run `pwd` after `cd ~/Mission_Control`)
+3. **Hardcopy:** Open `briefing.txt` and print a physical copy on the family printer.
+4. **SpaceX Asset + Wallpaper:**
+   - Open **Chromium** and go to `google.com`. Confirm you are logged into your Google account.
+   - Search for a cool **SpaceX** image. Save it into `~/Mission_Control/media/` (right-click → **Save Image As...**).
+   - Set that image as your desktop wallpaper (right-click the desktop → **Desktop Preferences**, or use your system’s background settings). Point the wallpaper picker at the file inside `Mission_Control/media/`.
+5. **Copy, Cut, Trash:**
+   - **Copy** your SpaceX image from `media/` into `archive/`.
+   - Create a spare duplicate somewhere under Mission_Control, then **Cut** (move) it into `archive/` so you practice move as well as copy.
+   - Delete one spare copy with **Move to Trash**, open Trash to confirm it is there, then **Empty Trash**.
+6. **Hidden Folder:** In File Manager, go to your Home directory and show hidden files (**Ctrl+H** or View → Show Hidden). In the Terminal, create your own hidden notes folder and a file inside it:
+   ```bash
+   mkdir -p ~/.agent_notes
+   ```
+   Use the Text Editor (or `nano`) to add a short note file inside `.agent_notes`. Find `.agent_notes` again in File Manager with hidden files visible.
+7. **Disk Space Two Ways:**
+   - Terminal: run `df -h` and find the line for your main disk (often `/`).
+   - File Manager: open `/` (root) from the sidebar or path bar. Read the **free space** and **total space** shown in the bottom status area.
+   - Add both the terminal reading and the File Manager reading as new lines in `briefing.txt`, then save.
+
+### 📥 Downloads Desk
+
+1. In Chromium, open your downloads list (menu → **Downloads**, or go to `chrome://downloads`).
+2. Find the SpaceX image you saved. Use the folder icon / “Show in folder” control (wording varies) to jump straight to the file in File Manager.
+3. Confirm it landed under `~/Mission_Control/media/` (or move it there if the browser defaulted to `Downloads`).
+4. From File Manager, open `Downloads` once and sort by **Date** so the newest files float to the top—handy when you are not sure what just arrived.
+
+### 🖥️ System Awareness
+
+1. **Network:** Click the network icon on the panel. Confirm you are connected and note the Wi‑Fi network name.
+2. **Sound:** Open sound settings, play a quick test sound if available, and move the volume up/down so you know where audio lives.
+3. **Power menu:** Open the shutdown/power menu and point out the difference between **Restart** and **Shutdown** (do not shut down until the field test is finished).
+4. **System Monitor:** Open **Task Manager** or **System Monitor**. With Chromium still open, find it in the process list and notice whether it is using CPU or memory. Close the monitor when you are done.
+
+### 🎮 Side Quest
+
+Give Dad a 60-second **tour guide**: start at the desktop wallpaper, open `~/Mission_Control`, show `briefing.txt`, the image in `media/`, your hidden `.agent_notes` folder, and the free space on `/`. Narrate each click.
+
+<div style="break-before: page;"></div>
+
+## 💿 MODULE 10: THE LITE ARCHITECTURE TRANSITION
 
 **Objective:** Build and configure a minimalist, non-graphical operating system image.
 
@@ -202,7 +312,7 @@ When the system boots up to a completely black screen with white text asking for
 
 <div style="break-before: page;"></div>
 
-## 📡 MODULE 10: HEADLESS OPERATIONS & REMOTE SHELLS
+## 📡 MODULE 11: HEADLESS OPERATIONS & REMOTE SHELLS
 
 **Objective:** Provision network architecture and configure secure remote shell access from the command line.
 
